@@ -1,11 +1,15 @@
-import ape
-import pytest
+# import ape
+# import pytest
 
 # Standard test comes from the interpretation of EIP-20
-ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
+# ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
+# INITIAL_SUPPLY = 1_303_030_303
+# AIRDROP_SUPPLY = 303
+# YEAR = 86400 * 365
+# INITIAL_RATE = 8714335457889396245
 
 
-# def test_initial_state(ridoerc20, owner):
+# def test_initial_state(ridoerc20, owner, airdrop_minter):
 #     """
 #     Test inital state of the contract.
 #     """
@@ -18,32 +22,29 @@ ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 #     # Check of intial state of authorization
 #     assert ridoerc20.admin() == owner
 #     assert ridoerc20.minter() == ZERO_ADDRESS
-#     assert ridoerc20.airdropMinter() == ZERO_ADDRESS
+
 
 #     # Check intial balance of tokens
-#     assert ridoerc20.balanceOf(owner) == 1_303_030_303 * 10 ** 18
-#     assert ridoerc20.total_supply() == 1_303_030_303 * 10 ** 18
+#     assert ridoerc20.balanceOf(owner) == (INITIAL_SUPPLY  - AIRDROP_SUPPLY)* 10 ** 18
+#     assert ridoerc20.balanceOf(airdrop_minter) == AIRDROP_SUPPLY  * 10 ** 18
+#     assert ridoerc20.total_supply() == INITIAL_SUPPLY * 10 ** 18
 #     assert ridoerc20.start_epoch_time() == 0
 
 
-def test_airdrop_minter(ridoerc20,airdrop_minter,owner):
-    print(ridoerc20.admin())
-    print(owner)
-    print(ridoerc20.airdropMinter())
-    print(ridoerc20.minter())
+# def test_start_data_mint(ridoerc20,minter,owner):
 
-    tx = ridoerc20.set_airdrop_minter(airdrop_minter, sender = owner)
-    assert ridoerc20.airdropMinter() == airdrop_minter
-    print(ridoerc20.airdropMinter())
+#     tx = ridoerc20.start_data_mint(minter, sender = owner)
+    
 
-    tx = ridoerc20.airdrop_mint(airdrop_minter,1000000, sender = airdrop_minter)
-    logs = list(tx.decode_logs(ridoerc20.SetAirdropMinter))
-    assert len(logs) == 1
-    assert logs[0]._from == ZERO_ADDRESS
-    assert logs[0]._to == airdrop_minter
-    assert logs[0]._value == 1000000
+#     assert ridoerc20.minter() == minter
+#     assert ridoerc20.mining_epoch() == -1
+#     assert ridoerc20.rate() == 0
+#     assert ridoerc20.available_supply() == INITIAL_SUPPLY * 10 ** 18
 
-    assert ridoerc20.balanceOf(airdrop_minter) == 1000000
+#     tx = ridoerc20.update_mining_parameters(sender = owner)
+#     assert ridoerc20.mining_epoch() == 0
+#     assert ridoerc20.rate() == INITIAL_RATE
+
 
 
     

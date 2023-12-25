@@ -43,8 +43,6 @@ allowances: HashMap[address, HashMap[address, uint256]]
 total_supply: public(uint256)
 
 minter: public(address)
-start: public(bool)
-
 admin: public(address)
 
 # General constants
@@ -368,7 +366,7 @@ def burn(_value: uint256) -> bool:
 
     log Transfer(msg.sender, empty(address), _value)
     return True
-
+    
 @external
 def set_name(_name: String[64], _symbol: String[32]):
     """
