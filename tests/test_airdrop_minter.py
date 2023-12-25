@@ -6,6 +6,8 @@
 # def test_airdrop_mint(ridoerc20, owner, airdrop_minter,receiptor):
 #     assert ridoerc20.balanceOf(airdrop_minter) == AIRDROP_SUPPLY
 #     assert airdrop_minter.admin() == owner
+#     chain.pending_timestamp += 86000
+#
 #     airdrop_minter.start(ridoerc20, sender = owner)
 #     assert airdrop_minter.token() == ridoerc20
 #     assert airdrop_minter.minting_epoch() == 0
