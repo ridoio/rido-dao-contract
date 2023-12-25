@@ -48,14 +48,11 @@ def test_airdrop_data_pool(airdrop_data_pool, owner, airdrop_minter,gauge_contro
 
     assert airdrop_data_pool.get_rate_of_pool(2, 2000, test_schema_uid, 2) == 10 ** 13
     
-    hash = encode(['bytes32'],[bytes.fromhex('bc36789e7a1e281436464229828f817d6612f7b477d66591ff96a9e064bcc98a')])
-    s = bytes.fromhex('477b6de519d36351f3805369c1d9688ed47ea4cd980909426172019fec7b7d8f48e84fdcfa9e261bd35c565cf464919150acfeaa4ec0aed0442ce07f97b55b9a00')
+    s = bytes.fromhex('2d5d74fe375c83230ce964e72fc7188bac21330bf1fc0cfbd899c38f079cfd6b5604ded66a05def68e46663ba2044b748f93c8efa2f0f3fd0687d9c3c02da0e701')
+    data_pool = encode(['bytes32'], [bytes.fromhex('0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3d')])
+    assert airdrop_data_pool.hash_user_extract_info(owner,[data_pool,data_pool],[1,2],[122,222],s) == '0x471543A3bd04486008c8a38c5C00543B73F1769e'
 
-    print(len(s),len(hash))
-    assert airdrop_data_pool.ecrecoverSig(hash,s) == '0x471543A3bd04486008c8a38c5C00543B73F1769e'
-
-
-    # assert airdrop_data_pool.mintingEpoch() == 312122
+    
 
 
 

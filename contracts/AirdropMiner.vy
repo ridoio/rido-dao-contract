@@ -30,7 +30,8 @@ data_pool: public(address)
 
 WEEK: constant(uint256) = 86400 * 7
 INFLATION_DELAY:constant(uint256) = 86400
-RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
+# RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
+RATE_REDUCTION_TIME: constant(uint256) = 0 
 
 REWARD_RATE: constant(uint256)= 3 * 10 ** 18
 

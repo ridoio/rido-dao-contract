@@ -77,8 +77,7 @@ def set_data_pools(_schemaUID: bytes32, _t1: uint64, _t2: uint64, _s:uint64, _re
     @param _reward reward of data pool in epoch `_epoch`
     @param _epoch epoch in which reward of data pool is `_reward`
     """
-    AirdropMinter(self.minter).epoch_write()
-
+    # AirdropMinter(self.minter).epoch_write()
     assert msg.sender == self.gaugeController, "only gauage controller can add new data pool"
     assert _epoch >= self.mintingEpoch, "you can only set current or future data pool info"
     assert _t1 != 0 and _t2 !=0 and _s != 0 and _reward != 0, "invalid params"
@@ -159,6 +158,21 @@ def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _
         
     return extractableRIDO
 
+@external
+@view
+def hash_user_extract_info(_addr: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30],_sig: Bytes[65]) -> address:
+    _hash: bytes32 = convert(_addr,bytes32)
+    i: int32 = 0
+    for _pool in _data_pool:
+        _hash = keccak256(concat(
+            _hash,
+            convert(_epoch[i],bytes8),
+            convert(_attestations[i],bytes8),
+            _pool,
+        ))
+        i+=1
+    return self._ecrecoverSig(_hash,_sig)
+
 
 @internal
 @view
@@ -184,12 +198,6 @@ def _ecrecoverSig(_hash: bytes32, _sig: Bytes[65]) -> address:
     if v in [27, 28]:
         return ecrecover(_hash, convert(v, uint256), r, s)
     return empty(address)
-
-@external
-@view
-def ecrecoverSig(_hash: bytes32, _sig: Bytes[65]) -> address:
-    return self._ecrecoverSig(_hash,_sig)
-
  
 
 @internal
