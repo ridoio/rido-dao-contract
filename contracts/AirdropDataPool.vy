@@ -12,15 +12,13 @@ event SetTotalAttstation:
     epoch :uint64
     attestation: uint64
 
-
 event SetDataPool:
     data_pool:bytes32
     s:uint64
     t1: uint64
     t2 :uint64
     epoch :uint64
-    reward :uint256
-    
+    reward :uint256 
 
 event ExtractReward:
     extractor: address
@@ -29,7 +27,6 @@ event ExtractReward:
     total: uint64
     extract: uint256
     # pool_reward: uint256
-
 
 interface AirdropMinter:
     def epoch_write() -> uint64: nonpayable
@@ -72,7 +69,7 @@ def __init__():
 def set_admin(_admin: address):
     """
     @notice Set the admin address
-    @param _admin Address of the minter
+    @param _admin Address of the admin
     """
     assert msg.sender == self.admin
     self.admin = _admin
@@ -91,6 +88,12 @@ def set_minter(_minter: address):
 
 @external
 def set_epoch(_epoch :uint64):
+    """
+    @notice Set the epoch of RIDO
+    @dev Only airdrop minter can call this function
+    @param _epoch the epoch would be set
+    """
+    
     assert self.minter == msg.sender
     assert self.mintingEpoch < _epoch
     self.mintingEpoch = _epoch
@@ -150,6 +153,9 @@ def set_data_pools(_schemaUID: bytes32, _t1: uint64, _t2: uint64, _s:uint64, _re
 @external
 @view
 def get_data_pools() -> DynArray[bytes32, 9999]:
+    """
+    @notice Get all data pool info
+    """
     return self.pool_ids_slice
 
 @external
@@ -232,6 +238,11 @@ def hash_user_extract_info(_addr: address, _data_pool: DynArray[bytes32, 30], _e
 @external
 @view
 def withdrawed_epoch(_addr: address, data_pools:DynArray[bytes32,1000]) -> DynArray[WithdrawedInfo,200]:
+    """
+    @notice Get the withdrawed information
+    @param _addr the address that is searched
+    @param data_pools the slice of data pools that are searched
+    """
     result:  DynArray[WithdrawedInfo,200] = []
     for pool in data_pools:
         _info: WithdrawedInfo = WithdrawedInfo({data_pool:pool,total:[],epochs:[],attestations:[]})
@@ -281,6 +292,13 @@ def _get_rate_of_pool(_amount: uint64, _total: uint64, _data_pool: bytes32, _epo
 @external
 @view
 def get_rate_of_pool(_amount: uint64, _total: uint64, _data_pool: bytes32, _epoch: uint64) -> uint256:
+    """
+    @notice Get how many reward user can get under `_amount`
+    @param _amonunt the amount of attestations created by one user
+    @param _total the amount of attestations created all users
+    @param _data_pool the data pool to be searched
+    @param _epoch the epoch to be searched
+    """
     return self._get_rate_of_pool(_amount,_total,_data_pool,_epoch)
 
 
@@ -342,4 +360,7 @@ def get_data_pool_info(_epoch: uint64, _data_pool: bytes32) -> (decimal,uint64,u
 @external
 @view
 def get_total_attestations(_epoch: uint64, _data_pool: bytes32) -> uint64:
+    """
+    @notice Get total attestation amount in `_data_pool` in epoch `_epoch`
+    """
     return self.totalAttestations[_data_pool][_epoch]

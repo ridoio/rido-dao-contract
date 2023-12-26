@@ -5,12 +5,6 @@
 @license MIT
 """
 
-event UpdateMiningParameters:
-    time: uint256
-    epoch: uint64
-    supply: uint256
-
-
 interface RIDOERC20:
     def transfer(_to : address, _value : uint256) -> bool: nonpayable
     def balanceOf(_owner: address) -> uint256: view
@@ -23,6 +17,12 @@ interface DataPools:
 event Minted:
     recipient: indexed(address)
     minted: uint256
+
+
+event UpdateMiningParameters:
+    time: uint256
+    epoch: uint64
+    supply: uint256
 
 admin: public(address)
 token: public(address)
