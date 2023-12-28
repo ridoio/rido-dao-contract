@@ -7,7 +7,7 @@
 event SetEpoch:
     epoch: uint64
 
-event SetTotalAttstation:
+event SetTotalAttestation:
     data_pool:bytes32
     epoch :uint64
     attestation: uint64
@@ -22,6 +22,7 @@ event SetDataPool:
 
 event ExtractReward:
     extractor: address
+    dataPool: bytes32
     epoch: uint64
     attestation: uint64
     total: uint64
@@ -175,7 +176,7 @@ def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 30], _epoch:Dyn
     for _pool in _data_pool:
         if self.totalAttestations[_pool][_epoch[i]] == 0:
             self.totalAttestations[_pool][_epoch[i]] = _attestations[i]
-            log SetTotalAttstation(_pool,_epoch[i],_attestations[i])
+            log SetTotalAttestation(_pool,_epoch[i],_attestations[i])
         i+=1
 
 @external
@@ -214,7 +215,7 @@ def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _
         else:
             _totalAttestations: uint64 = self.totalAttestations[_data_pool[i]][e]
             _extractableRIDO: uint256 = self._get_rate_of_pool(_attestations[i],_totalAttestations,_data_pool[i],e)
-            log ExtractReward(_addr,e,_attestations[i],_totalAttestations,_extractableRIDO)
+            log ExtractReward(_addr,_data_pool[i],e,_attestations[i],_totalAttestations,_extractableRIDO)
             extractableRIDO += _extractableRIDO
             self.userAttestations[_addr][_data_pool[i]][e] = _attestations[i]
         i+=1
@@ -294,7 +295,7 @@ def _get_rate_of_pool(_amount: uint64, _total: uint64, _data_pool: bytes32, _epo
 def get_rate_of_pool(_amount: uint64, _total: uint64, _data_pool: bytes32, _epoch: uint64) -> uint256:
     """
     @notice Get how many reward user can get under `_amount`
-    @param _amonunt the amount of attestations created by one user
+    @param _amount the amount of attestations created by one user
     @param _total the amount of attestations created all users
     @param _data_pool the data pool to be searched
     @param _epoch the epoch to be searched
@@ -311,14 +312,13 @@ def _piecewise_function(s: uint64,t: decimal, x: uint64) -> uint256:
     for i in range (9999999):
         if i >= n:
             break
-        if i == 0:
-            _ti = 1.0
-        else:
+        if i != 0:
             _ti = _ti * t
 
         _s = _s + _ti
 
-    _ti = _ti * t
+    if n >= 1:
+        _ti = _ti * t
 
     _s = convert(s, decimal) * _s
     
@@ -326,11 +326,11 @@ def _piecewise_function(s: uint64,t: decimal, x: uint64) -> uint256:
     result: uint256 = convert(_f ,uint256)
     return result
 
-# @external
-# @view
-# def piecewise_function(s: uint64,t1: uint64, t2:uint64, x: uint64) -> uint256:
-#     t: decimal = convert(t1,decimal) / convert(t2, decimal)
-#     return self._piecewise_function(s,t,x)
+@external
+@view
+def piecewise_function(s: uint64,t1: uint64, t2:uint64, x: uint64) -> uint256:
+    t: decimal = convert(t1,decimal) / convert(t2, decimal)
+    return self._piecewise_function(s,t,x)
 
 @internal
 @view

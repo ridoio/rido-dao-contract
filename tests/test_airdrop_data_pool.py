@@ -43,10 +43,11 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
     assert airdrop_data_pool.get_total_attestations(2,data_pool) == 2000
     assert airdrop_data_pool.get_total_attestations(3,data_pool) == 3000
 
-    # assert airdrop_data_pool.piecewise_function(2,1,2,2) == 20_000_000_000
-    # assert airdrop_data_pool.piecewise_function(2,1,2,3) == 25_000_000_000
-    # assert airdrop_data_pool.piecewise_function(2,1,2,4) == 30_000_000_000
-    # assert airdrop_data_pool.piecewise_function(2,1,2,9) == 38_125_000_000
+    assert airdrop_data_pool.piecewise_function(2,1,2,1) == 10_000_000_000
+    assert airdrop_data_pool.piecewise_function(2,1,2,2) == 20_000_000_000
+    assert airdrop_data_pool.piecewise_function(2,1,2,3) == 25_000_000_000
+    assert airdrop_data_pool.piecewise_function(2,1,2,4) == 30_000_000_000
+    assert airdrop_data_pool.piecewise_function(2,1,2,9) == 38_125_000_000
 
     assert airdrop_data_pool.get_rate_of_pool(2, 2000, data_pool, 2) == 10 ** 13
     

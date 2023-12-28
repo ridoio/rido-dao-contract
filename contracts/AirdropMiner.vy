@@ -9,6 +9,7 @@ interface RIDOERC20:
     def transfer(_to : address, _value : uint256) -> bool: nonpayable
     def balanceOf(_owner: address) -> uint256: view
 
+
 interface DataPools:
     def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30],_sig: Bytes[65]) -> uint256: nonpayable
     def set_epoch(_epoch :uint64): nonpayable
@@ -30,8 +31,8 @@ data_pool: public(address)
 
 WEEK: constant(uint256) = 86400 * 7
 INFLATION_DELAY:constant(uint256) = 86400
-# RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
-RATE_REDUCTION_TIME: constant(uint256) = 0 
+RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
+# RATE_REDUCTION_TIME: constant(uint256) = 0 
 
 REWARD_RATE: constant(uint256)= 3 * 10 ** 18
 
@@ -40,6 +41,8 @@ minting_epoch: public(uint64)
 start_epoch_time: public(uint256)
 total_supply: public(uint256)
 
+init_epoch_time: public(uint256)
+
 # minter -> user -> can mint?
 allowed_to_mint_for: public(HashMap[address, HashMap[address, bool]])
 
@@ -47,6 +50,7 @@ allowed_to_mint_for: public(HashMap[address, HashMap[address, bool]])
 def __init__(_data_pool: address):
     self.admin = msg.sender
     self.data_pool = _data_pool
+
 
 @external
 def start(_token: address):
@@ -58,7 +62,6 @@ def start(_token: address):
     assert RIDOERC20(_token).balanceOf(self) > REWARD_RATE, "balance in airdrop contract should larger than rewart rate"
     self.token = _token
     self.start_epoch_time = block.timestamp - RATE_REDUCTION_TIME - 86400
-    # self.start_epoch_time = block.timestamp - RATE_REDUCTION_TIME - 86400
 
 
 @internal
@@ -83,6 +86,7 @@ def update_mining_parameters():
     assert block.timestamp >= self.start_epoch_time + RATE_REDUCTION_TIME, "new epoch is not start" # dev: too soon!
     self._update_mining_parameters()
 
+
 @external 
 def epoch_write() -> uint64:
     """
@@ -95,6 +99,7 @@ def epoch_write() -> uint64:
         self._update_mining_parameters()
         
     return self.minting_epoch
+
 
 @external
 def start_epoch_time_write() -> uint256:
@@ -109,6 +114,7 @@ def start_epoch_time_write() -> uint256:
         return self.start_epoch_time
     else:
         return _start_epoch_time
+
 
 @external
 def future_epoch_time_write() -> uint256:
@@ -154,6 +160,7 @@ def mint_for(_for: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[u
     if self.allowed_to_mint_for[msg.sender][_for] or _for == msg.sender:
         self._mint_for(_for, _data_pool, _epoch, _attestations, _sig)
 
+
 @external
 @nonreentrant('lock')
 def mint(_data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30], _sig: Bytes[65]):
@@ -174,3 +181,13 @@ def toggle_approve_mint(minting_user: address):
     @param minting_user Address to toggle permission for
     """
     self.allowed_to_mint_for[minting_user][msg.sender] = not self.allowed_to_mint_for[minting_user][msg.sender]
+
+@external
+@view
+def get_init_epoch() -> uint256:
+    return self.init_epoch_time
+
+@external
+@view
+def get_epoch_length() -> uint256:
+    return RATE_REDUCTION_TIME
