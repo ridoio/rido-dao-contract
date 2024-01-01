@@ -46,19 +46,25 @@ struct WithdrawedInfo:
 
 minter: public(address)
 admin: public(address)
+
+#only gaugeController can set data pool info
 gaugeController: public(address)
 
+#data pool info
 # map(schema uid -> map(epoch -> data pool info))
 pools: public(HashMap[bytes32, HashMap[uint64, DataPoolSlope]])
 pool_ids: public(HashMap[bytes32,uint8])
 pool_ids_slice: public(DynArray[bytes32, 9999])
 
+#total attestation of data pools created in different epoch
 # map(schema uid -> map(epoch -> (total attestation amount)))
 totalAttestations: public(HashMap[bytes32, HashMap[uint64, uint64]])
 
+#user's attestation of data pools created in different epoch
 # map(user -> map(data_pool -> map(epoch->attestation numbers)))
 userAttestations: public(HashMap[address,HashMap[bytes32,HashMap[uint64,uint64]]])
 
+#current epoch
 mintingEpoch: public(uint64)
 
 @external
@@ -115,8 +121,9 @@ def set_gauge_controller(_gauge_controller: address):
 @external
 def set_data_pools(_schemaUID: bytes32, _t1: uint64, _t2: uint64, _s:uint64, _reward:uint256 ,_epoch: uint64):
     """
-    @notice Add or Set new data pool info
-    @dev Only admin can call this function
+    @notice Add or Set new data pool info.
+    @dev Only admin can call this function and only current epoch or the epoch in future can be set. So to include the
+    attestation before airdrop stage start, the data pool info in epoch 0 should be set before AirdropMiner starts.
     @param  _schemaUID UID of data pool
     @param _t1 denominator of step in data pool
     @param _t2 moleculestep of step in data pool
@@ -183,7 +190,7 @@ def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 30], _epoch:Dyn
 @nonreentrant("lock")
 def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30],_sig: Bytes[65]) -> uint256:
     """
-    @notice Update total generated attestations amount in each epoch
+    @notice Get how much reward _addr can extract according to the given info and when the user extract reward successfully,log of extracting reward should be recorded.
     @dev Only airdrop minter can call this function
     @param _addr the address you want to checkout the extractable
     @param _data_pool slice of data pool uid
