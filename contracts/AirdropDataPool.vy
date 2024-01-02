@@ -140,23 +140,28 @@ def set_data_pools(_schemaUID: bytes32, _t1: uint64, _t2: uint64, _s:uint64, _re
         self.pool_ids[_schemaUID] = 1
         self.pool_ids_slice.append(_schemaUID)
 
-    unempty_start: uint64 = self.mintingEpoch
-    current_slope:DataPoolSlope = empty(DataPoolSlope)
-    if self.pools[_schemaUID][self.mintingEpoch -1].s == 0:
-        for i in range (2,9999999):
-            if i >= self.mintingEpoch-1:
-                break
-            if self.pools[_schemaUID][self.mintingEpoch-i].s != 0:
-                current_slope = self.pools[_schemaUID][self.mintingEpoch-i]
-                unempty_start = self.mintingEpoch-i
-
-        for i in range (unempty_start,unempty_start+99999999):
-            if i >= self.mintingEpoch-1:
-                break
-            self.pools[_schemaUID][i] = current_slope
     _t : decimal = convert(_t1,decimal) / convert(_t2, decimal)
     self.pools[_schemaUID][_epoch] = DataPoolSlope({t:_t , s:_s, reward:_reward})
     log SetDataPool(_schemaUID,_s,_t1,_t2,_epoch,_reward)
+
+    #if current epoch is not is zero, update the un-set epoch data pool info, if current epoch info is not set
+    #data pool use last setted info by default.
+    if self.mintingEpoch > 0:
+        unempty_start: uint64 = self.mintingEpoch
+        current_slope:DataPoolSlope = empty(DataPoolSlope)
+        if self.pools[_schemaUID][self.mintingEpoch-1].s == 0:
+            for i in range (2,9999999):
+                if i > self.mintingEpoch:
+                    break
+                if self.pools[_schemaUID][self.mintingEpoch-i].s != 0:
+                    current_slope = self.pools[_schemaUID][self.mintingEpoch-i]
+                    unempty_start = self.mintingEpoch-i
+
+            if self.pools[_schemaUID][unempty_start].reward != 0:
+                for i in range (unempty_start,unempty_start+99999999):
+                    if i > self.mintingEpoch-1:
+                        break
+                    self.pools[_schemaUID][i] = current_slope
 
 @external
 @view
@@ -217,12 +222,13 @@ def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _
     
     i = 0
     for e in _epoch:
-        if self.userAttestations[_addr][_data_pool[i]][e] != empty(uint64) or e >= self.mintingEpoch:
+        #if reward of _addr in epoch has been extracted or the epoch does end, skip
+        if self.userAttestations[_addr][_data_pool[i]][e] != empty(uint64) or e >= self.mintingEpoch or _attestations[i] == 0:
             continue
         else:
             _totalAttestations: uint64 = self.totalAttestations[_data_pool[i]][e]
-            _extractableRIDO: uint256 = self._get_rate_of_pool(_attestations[i],_totalAttestations,_data_pool[i],e)
-            log ExtractReward(_addr,_data_pool[i],e,_attestations[i],_totalAttestations,_extractableRIDO)
+            _extractableRIDO: uint256 = self._get_rate_of_pool(_attestations[i], _totalAttestations, _data_pool[i], e)
+            log ExtractReward(_addr, _data_pool[i], e,_attestations[i], _totalAttestations, _extractableRIDO)
             extractableRIDO += _extractableRIDO
             self.userAttestations[_addr][_data_pool[i]][e] = _attestations[i]
         i+=1
@@ -342,15 +348,15 @@ def piecewise_function(s: uint64,t1: uint64, t2:uint64, x: uint64) -> uint256:
 @internal
 @view
 def _get_data_pool_info(_epoch: uint64, _data_pool: bytes32) -> DataPoolSlope:
-    assert _epoch <= self.mintingEpoch
-    for i in range (999999999):
-        if i > _epoch:
-            break
+    if _epoch <= self.mintingEpoch:
+        for i in range (999999999):
+            if i > _epoch:
+                break
+            _slope: DataPoolSlope = self.pools[_data_pool][_epoch-i]
+            if _slope.reward != 0:
+                return _slope
 
-        _slope: DataPoolSlope = self.pools[_data_pool][_epoch-i]
-        if _slope.reward != 0:
-            return _slope
-    return empty(DataPoolSlope)
+    return self.pools[_data_pool][_epoch]
     
 @external
 @view

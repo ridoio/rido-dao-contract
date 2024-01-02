@@ -8,24 +8,28 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
     airdrop_data_pool.set_minter(gauge_controller, sender = owner)
     airdrop_data_pool.set_gauge_controller(gauge_controller, sender = owner)
     assert airdrop_data_pool.mintingEpoch() == 0
-    
-    airdrop_data_pool.set_epoch(1, sender = gauge_controller)
-    assert airdrop_data_pool.mintingEpoch() == 1
 
     data_pool = encode(['bytes32'], [bytes.fromhex('0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3d')])
+    data_pool2 = encode(['bytes32'], [bytes.fromhex('0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3f')])
 
     assert len(airdrop_data_pool.get_data_pools()) == 0
-
-    airdrop_data_pool.set_data_pools(data_pool, 1, 2 , 2, 10 ** 16, 1, sender = gauge_controller)
-    assert airdrop_data_pool.get_data_pool_info(1,data_pool)[0] == Decimal(0.5)
-    assert airdrop_data_pool.get_data_pool_info(1,data_pool)[1] == 2
-    assert airdrop_data_pool.get_data_pool_info(1,data_pool)[2] == 10 ** 16
+    airdrop_data_pool.set_data_pools(data_pool, 1, 2 , 2, 10 ** 16, 0, sender = gauge_controller)
+    assert airdrop_data_pool.get_data_pool_info(0,data_pool)[0] == Decimal(0.5)
+    assert airdrop_data_pool.get_data_pool_info(0,data_pool)[1] == 2
+    assert airdrop_data_pool.get_data_pool_info(0,data_pool)[2] == 10 ** 16
 
     assert airdrop_data_pool.get_data_pools()[0].hex() == '0x0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3d'
 
     airdrop_data_pool.set_epoch(3,sender = gauge_controller)
     assert airdrop_data_pool.mintingEpoch() == 3
     airdrop_data_pool.set_data_pools(data_pool, 1, 2 , 2, 5 * 10 ** 16, 3, sender = gauge_controller)
+    airdrop_data_pool.set_data_pools(data_pool2, 1, 2 , 2,5 * 10 ** 16, 3, sender = gauge_controller)
+
+
+    assert airdrop_data_pool.get_data_pool_info(0,data_pool)[0] == Decimal(0.5)
+    assert airdrop_data_pool.get_data_pool_info(0,data_pool)[1] == 2
+    assert airdrop_data_pool.get_data_pool_info(0,data_pool)[2] == 10 ** 16
+
     assert airdrop_data_pool.get_data_pool_info(1,data_pool)[0] == Decimal(0.5)
     assert airdrop_data_pool.get_data_pool_info(1,data_pool)[1] == 2
     assert airdrop_data_pool.get_data_pool_info(1,data_pool)[2] == 10 ** 16
@@ -38,7 +42,35 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
     assert airdrop_data_pool.get_data_pool_info(3,data_pool)[1] == 2
     assert airdrop_data_pool.get_data_pool_info(3,data_pool)[2] == 5 * 10 ** 16
 
-    airdrop_data_pool.update_each_epoch_attestations([data_pool,data_pool,data_pool],[1,2,3], [1000,2000,3000], sender = owner)
+    assert airdrop_data_pool.get_data_pool_info(1,data_pool2)[0] == Decimal(0)
+    assert airdrop_data_pool.get_data_pool_info(1,data_pool2)[1] == 0
+    assert airdrop_data_pool.get_data_pool_info(1,data_pool2)[2] == 0
+
+    assert airdrop_data_pool.get_data_pool_info(1,data_pool2)[0] == Decimal(0)
+    assert airdrop_data_pool.get_data_pool_info(1,data_pool2)[1] == 0
+    assert airdrop_data_pool.get_data_pool_info(1,data_pool2)[2] == 0
+
+    assert airdrop_data_pool.get_data_pool_info(2,data_pool2)[0] == Decimal(0)
+    assert airdrop_data_pool.get_data_pool_info(2,data_pool2)[1] == 0
+    assert airdrop_data_pool.get_data_pool_info(2,data_pool2)[2] == 0
+
+    assert airdrop_data_pool.get_data_pool_info(3,data_pool2)[0] == Decimal(0.5)
+    assert airdrop_data_pool.get_data_pool_info(3,data_pool2)[1] == 2
+    assert airdrop_data_pool.get_data_pool_info(3,data_pool2)[2] == 5 * 10 ** 16
+
+
+    airdrop_data_pool.set_data_pools(data_pool2, 1, 2 , 2, 5 * 10 ** 16, 10, sender = gauge_controller)
+    assert airdrop_data_pool.get_data_pool_info(4,data_pool2)[0] == Decimal(0)
+    assert airdrop_data_pool.get_data_pool_info(4,data_pool2)[1] == 0
+    assert airdrop_data_pool.get_data_pool_info(4,data_pool2)[2] == 0
+
+    assert airdrop_data_pool.get_data_pool_info(10,data_pool2)[0] == Decimal(0.5)
+    assert airdrop_data_pool.get_data_pool_info(10,data_pool2)[1] == 2
+    assert airdrop_data_pool.get_data_pool_info(10,data_pool2)[2] == 5 * 10 ** 16
+
+
+    airdrop_data_pool.update_each_epoch_attestations([data_pool,data_pool,data_pool,data_pool],[0,1,2,3], [1000,1000,2000,3000], sender = owner)
+    assert airdrop_data_pool.get_total_attestations(1,data_pool) == 1000
     assert airdrop_data_pool.get_total_attestations(1,data_pool) == 1000
     assert airdrop_data_pool.get_total_attestations(2,data_pool) == 2000
     assert airdrop_data_pool.get_total_attestations(3,data_pool) == 3000

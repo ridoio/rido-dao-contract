@@ -59,7 +59,7 @@ YEAR: constant(uint256) = 86400 * 365
 
 # Supply parameters
 INITIAL_SUPPLY: constant(uint256) = 1_303_030_303 # todo:
-AIRDROP_SUPPLY: constant(uint256) = 303 # todo:
+AIRDROP_SUPPLY: constant(uint256) = 50_000_000 # todo:
 
 INITIAL_RATE: constant(uint256) = 274_815_283 * 10 ** 18 / YEAR  # leading to 43% premine # todo
 RATE_REDUCTION_TIME: constant(uint256) = YEAR

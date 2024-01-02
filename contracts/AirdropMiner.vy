@@ -34,7 +34,7 @@ INFLATION_DELAY:constant(uint256) = 86400
 RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
 # RATE_REDUCTION_TIME: constant(uint256) = 0 
 
-REWARD_RATE: constant(uint256)= 3 * 10 ** 18
+REWARD_RATE: constant(uint256)= 50_000_000 * 10 ** 18
 
 #Supply variables
 minting_epoch: public(uint64)
@@ -55,13 +55,13 @@ def __init__(_data_pool: address):
 @external
 def start(_token: address):
     assert self.admin == msg.sender, "only admin can call this func"
-
     assert self.token == empty(address), "the func could only called once"
     assert self.start_epoch_time == 0, "epoch time should start from 0"
 
-    assert RIDOERC20(_token).balanceOf(self) > REWARD_RATE, "balance in airdrop contract should larger than rewart rate"
+    assert RIDOERC20(_token).balanceOf(self) >= REWARD_RATE, "balance in airdrop contract should larger than rewart rate"
     self.token = _token
-    self.start_epoch_time = block.timestamp - RATE_REDUCTION_TIME - 86400
+    self.start_epoch_time = block.timestamp - RATE_REDUCTION_TIME
+    self.init_epoch_time = block.timestamp
 
 
 @internal
