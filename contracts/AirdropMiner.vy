@@ -11,7 +11,7 @@ interface RIDOERC20:
 
 
 interface DataPools:
-    def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30],_sig: Bytes[65]) -> uint256: nonpayable
+    def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100],_sig: Bytes[65]) -> uint256: nonpayable
     def set_epoch(_epoch :uint64): nonpayable
 
 
@@ -132,7 +132,7 @@ def future_epoch_time_write() -> uint256:
 
 
 @internal
-def _mint_for(_for: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30], _sig: Bytes[65]):
+def _mint_for(_for: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100], _sig: Bytes[65]):
     assert _for != empty(address)   # dev: zero address
     if block.timestamp >= self.start_epoch_time + RATE_REDUCTION_TIME:
         self._update_mining_parameters()
@@ -148,7 +148,7 @@ def _mint_for(_for: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[
 
 @external
 @nonreentrant('lock')
-def mint_for(_for: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30], _sig: Bytes[65]):
+def mint_for(_for: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100], _sig: Bytes[65]):
     """
     @notice Mint tokens for `_for`
     @dev Only possible when `msg.sender` has been approved via `toggle_approve_mint`
@@ -163,7 +163,7 @@ def mint_for(_for: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[u
 
 @external
 @nonreentrant('lock')
-def mint(_data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30], _sig: Bytes[65]):
+def mint(_data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100], _sig: Bytes[65]):
     """
     @notice Mint everything which belongs to `msg.sender` and send to them
     @param _data_pool slice of data pool uid

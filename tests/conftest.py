@@ -50,8 +50,3 @@ def airdrop_minter(owner,project,airdrop_data_pool):
 @pytest.fixture(scope="session")
 def ridoerc20(owner,project,airdrop_minter):
     return owner.deploy(project.ERC20RIDO,"RIDO","RID",18,airdrop_minter)
-
-
-@pytest.fixture(scope="session")
-def airdrop_data_pool(owner,project):
-     return owner.deploy(project.AirdropDataPool)

@@ -172,7 +172,7 @@ def get_data_pools() -> DynArray[bytes32, 9999]:
     return self.pool_ids_slice
 
 @external
-def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30]):
+def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100]):
     """
     @notice Update total generated attestations amount in each epoch
     @dev Only admin can call this function
@@ -193,7 +193,7 @@ def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 30], _epoch:Dyn
 
 @external
 @nonreentrant("lock")
-def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30],_sig: Bytes[65]) -> uint256:
+def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100],_sig: Bytes[65]) -> uint256:
     """
     @notice Get how much reward _addr can extract according to the given info and when the user extract reward successfully,log of extracting reward should be recorded.
     @dev Only airdrop minter can call this function
@@ -236,7 +236,7 @@ def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 30], _
 
 @external
 @view
-def hash_user_extract_info(_addr: address, _data_pool: DynArray[bytes32, 30], _epoch:DynArray[uint64, 30], _attestations:DynArray[uint64, 30],_sig: Bytes[65]) -> address:
+def hash_user_extract_info(_addr: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100],_sig: Bytes[65]) -> address:
     _hash: bytes32 = convert(_addr,bytes32)
     i: int32 = 0
     for _pool in _data_pool:

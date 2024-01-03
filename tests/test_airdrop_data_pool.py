@@ -83,7 +83,7 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
 
     assert airdrop_data_pool.get_rate_of_pool(2, 2000, data_pool, 2) == 10 ** 13
     
-    s = bytes.fromhex('854c372b44b2527fe9071ed3aabf5adf4f538dbd817ffa4e97b3b31b2b5141125c904915ff219c154f70494ad5a65b427509c6411bdf14991481551b8a5017a001')
+    s = bytes.fromhex('e7a51bada338ecbec162f2c488b7802985c2632f4de70ec18d04ffee1b8aac2218d2552d69e70b5151ebbcf89601052c94cf18e5ca6fcc026d72d55bcf0aecd300')
     assert airdrop_data_pool.hash_user_extract_info(owner,[data_pool,data_pool],[1,2],[4,9],s) == '0x471543A3bd04486008c8a38c5C00543B73F1769e'
 
     rido_addr = '0x471543A3bd04486008c8a38c5C00543B73F1769e'
