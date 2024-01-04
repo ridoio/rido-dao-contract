@@ -11,7 +11,7 @@
 from vyper.interfaces import ERC20
 
 admin: public(address)
-CRV: public(constant(address)) = 0xD533a949740bb3306d119CC777fa900bA034cd52 #todo
+RIDO: public(constant(address)) = 0xD533a949740bb3306d119CC777fa900bA034cd52 #todo
 
 contracts: public(address[100000])
 num_contracts: public(uint256)
@@ -48,7 +48,7 @@ def __init__():
 def add_contract(_contract: address):
     """
     @notice Adds a contract to the list of contracts to 
-            check for CRV balances
+            check for RIDO balances
     @param _contract Address of the contract to cache
     """
     assert msg.sender == self.admin
@@ -59,11 +59,11 @@ def add_contract(_contract: address):
 @view
 def circulating_supply() -> uint256:
     """
-    @notice Returns the circulating supply of CRV
+    @notice Returns the circulating supply of RIDO
     """
-    crv_total_supply: uint256 = ERC20(CRV).totalSupply()
-    not_circulating: uint256 = self._get_crv_balances_of_cached_contracts()
-    return crv_total_supply - not_circulating
+    rido_total_supply: uint256 = ERC20(RIDO).totalSupply()
+    not_circulating: uint256 = self._get_rido_balances_of_cached_contracts()
+    return rido_total_supply - not_circulating
 
 
 @external
@@ -86,15 +86,15 @@ def _add_contract(_contract: address):
 
 @internal
 @view
-def _get_crv_balances_of_cached_contracts() -> uint256:
+def _get_rido_balances_of_cached_contracts() -> uint256:
     
     balances: uint256 = 0
     for i in range(LEN_CACHED_CONTRACTS):
-        balances += ERC20(CRV).balanceOf(cached_contracts[i])
+        balances += ERC20(RIDO).balanceOf(cached_contracts[i])
 
     for i in range(10000):
         if self.contracts[i] == empty(address):
             break
-        balances += ERC20(CRV).balanceOf(self.contracts[i])
+        balances += ERC20(RIDO).balanceOf(self.contracts[i])
 
     return balances

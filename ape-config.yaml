@@ -6,3 +6,5 @@ geth:
   bsc:
     testnet:
       uri: https://data-seed-prebsc-1-s1.bnbchain.org:8545
+    mainnet:
+      uri: https://bsc-dataseed.ninicoin.io
