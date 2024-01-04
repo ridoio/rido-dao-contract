@@ -131,7 +131,6 @@ def set_data_pools(_schemaUID: bytes32, _t1: uint64, _t2: uint64, _s:uint64, _re
     @param _reward reward of data pool in epoch `_epoch`
     @param _epoch epoch in which reward of data pool is `_reward`
     """
-    # AirdropMinter(self.minter).epoch_write()
     assert msg.sender == self.gaugeController, "only gauage controller can add new data pool"
     assert _epoch >= self.mintingEpoch, "you can only set current or future data pool info"
     assert _t1 != 0 and _t2 !=0 and _s != 0 and _reward != 0, "invalid params"
@@ -181,6 +180,7 @@ def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 100], _epoch:Dy
     @param _epoch slice of data pool
     """
 
+    AirdropMinter(self.minter).epoch_write()
     assert msg.sender == self.admin
     assert len(_data_pool) == len(_epoch) and len(_epoch) == len(_attestations), "the len of data_pools, epoch and attestation should be same"
 

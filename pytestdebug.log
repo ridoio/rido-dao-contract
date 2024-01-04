@@ -1,0 +1,1275 @@
+versions pytest-7.4.3, python-3.9.6.final.0
+cwd=/Users/pan/work/rido/dao/rido-contracts
+args=('tests/test_airdrop_data_pool.py', '--debug')
+
+  pytest_cmdline_main [hook]
+      config: <_pytest.config.Config object at 0x12105d130>
+    pytest_plugin_registered [hook]
+        plugin: <Session rido-contracts exitstatus='<UNSET>' testsfailed=0 testscollected=0>
+        manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+    finish pytest_plugin_registered --> [] [hook]
+    pytest_configure [hook]
+        config: <_pytest.config.Config object at 0x12105d130>
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x122f7c8b0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x122f7c130>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <ape.pytest.runners.PytestApeRunner object at 0x122f798b0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <ape.pytest.fixtures.PytestApeFixtures object at 0x122f79280>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <class '_pytest.legacypath.LegacyTmpdirPlugin'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x121052e80>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x12105d130>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.legacypath' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/legacypath.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.cacheprovider' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/cacheprovider.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.stepwise' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/stepwise.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python_path' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/python_path.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unraisableexception' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/unraisableexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.threadexception' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/threadexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'ape.pytest.plugin' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/ape/pytest/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'web3.tools.pytest_ethereum.plugins' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/web3/tools/pytest_ethereum/plugins.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=10 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=11 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> err=<FDCapture 2 oldfd=12 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=13 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> in_=<FDCapture 0 oldfd=8 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='utf-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'conftest' from '/Users/pan/work/rido/dao/rido-contracts/tests/conftest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x122f7c8b0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x122f7c130>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <ape.pytest.runners.PytestApeRunner object at 0x122f798b0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <ape.pytest.fixtures.PytestApeFixtures object at 0x122f79280>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <class '_pytest.legacypath.LegacyTmpdirPlugin'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_accounts'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_cache'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_compile'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_console'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_ethereum'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_geth'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_init'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_networks'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_plugins'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_pm'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_run'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ape_test'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: ens'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_warning_recorded [hook]
+          warning_message: {message : PytestAssertRewriteWarning('Module already imported so cannot be rewritten: web3'), category : 'PytestAssertRewriteWarning', filename : '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', lineno : 1204, line : None}
+          when: config
+          nodeid: 
+          location: ('/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/config/__init__.py', 1204, '_consider_importhook')
+      finish pytest_warning_recorded --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x122f79490>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x122f7c0d0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+    finish pytest_configure --> [] [hook]
+    pytest_sessionstart [hook]
+        session: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x121052e80>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x12105d130>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.legacypath' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/legacypath.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.cacheprovider' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/cacheprovider.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.stepwise' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/stepwise.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python_path' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/python_path.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unraisableexception' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/unraisableexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.threadexception' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/threadexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'ape.pytest.plugin' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/ape/pytest/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'web3.tools.pytest_ethereum.plugins' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/web3/tools/pytest_ethereum/plugins.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=10 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=11 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> err=<FDCapture 2 oldfd=12 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=13 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> in_=<FDCapture 0 oldfd=8 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='utf-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'conftest' from '/Users/pan/work/rido/dao/rido-contracts/tests/conftest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x122f7c8b0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x122f7c130>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <ape.pytest.runners.PytestApeRunner object at 0x122f798b0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <ape.pytest.fixtures.PytestApeFixtures object at 0x122f79280>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <class '_pytest.legacypath.LegacyTmpdirPlugin'>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x122f79490>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x122f7c0d0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.fixtures.FixtureManager object at 0x122f796d0>
+          manager: <_pytest.config.PytestPluginManager object at 0x121052e80>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_report_header [hook]
+          config: <_pytest.config.Config object at 0x12105d130>
+          start_path: /Users/pan/work/rido/dao/rido-contracts
+          startdir: /Users/pan/work/rido/dao/rido-contracts
+      finish pytest_report_header --> [['rootdir: /Users/pan/work/rido/dao/rido-contracts', 'plugins: eth-ape-0.7.1, web3-6.12.0'], ['using: pytest-7.4.3', 'setuptools registered plugins:', '  eth-ape-0.7.1 at /Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/ape/pytest/plugin.py', '  web3-6.12.0 at /Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/web3/tools/pytest_ethereum/plugins.py']] [hook]
+    finish pytest_sessionstart --> [] [hook]
+    pytest_collection [hook]
+        session: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+    perform_collect <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0> ['tests/test_airdrop_data_pool.py'] [collection]
+        pytest_collectstart [hook]
+            collector: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        finish pytest_collectstart --> [] [hook]
+        pytest_make_collect_report [hook]
+            collector: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        processing argument (PosixPath('/Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py'), []) [collection]
+            pytest_collect_file [hook]
+                parent: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+                file_path: /Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py
+                path: /Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py
+              pytest_pycollect_makemodule [hook]
+                  parent: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+                  module_path: /Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py
+                  path: /Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py
+              finish pytest_pycollect_makemodule --> <Module tests/test_airdrop_data_pool.py> [hook]
+            finish pytest_collect_file --> [<Module tests/test_airdrop_data_pool.py>] [hook]
+          matchnodes [<Module tests/test_airdrop_data_pool.py>] [] [collection]
+            matchnodes finished ->  1 nodes [collection]
+        finish pytest_make_collect_report --> <CollectReport '' lenresult=1 outcome='passed'> [hook]
+        pytest_collectreport [hook]
+            report: <CollectReport '' lenresult=1 outcome='passed'>
+        finish pytest_collectreport --> [] [hook]
+    genitems <Module tests/test_airdrop_data_pool.py> [collection]
+      pytest_collectstart [hook]
+          collector: <Module tests/test_airdrop_data_pool.py>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <Module tests/test_airdrop_data_pool.py>
+      find_module called for: test_airdrop_data_pool [assertion]
+      matched test file (was specified on cmdline): '/Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py' [assertion]
+      _read_pyc(/Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py): out of date [assertion]
+      rewriting PosixPath('/Users/pan/work/rido/dao/rido-contracts/tests/test_airdrop_data_pool.py') [assertion]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: @py_builtins
+            obj: <module 'builtins' (built-in)>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: @pytest_ar
+            obj: <module '_pytest.assertion.rewrite' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/_pytest/assertion/rewrite.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: ape
+            obj: <module 'ape' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/ape/__init__.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: pytest
+            obj: <module 'pytest' from '/Users/pan/work/rido/dao/vyper/lib/python3.9/site-packages/pytest/__init__.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: Decimal
+            obj: <class 'decimal.Decimal'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: encode
+            obj: <bound method ABIEncoder.encode of <eth_abi.codec.ABICodec object at 0x10480dc40>>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: chain
+            obj: <ChainManager (disconnected)>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: EPOCH_INTERVAL
+            obj: 7200
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_airdrop_data_pool.py>
+            name: test_airdrop_data_pool
+            obj: <function test_airdrop_data_pool at 0x12419e550>
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x123e72100>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function test_airdrop_data_pool>] [hook]
+      finish pytest_make_collect_report --> <CollectReport 'tests/test_airdrop_data_pool.py' lenresult=1 outcome='passed'> [hook]
+    genitems <Function test_airdrop_data_pool> [collection]
+      pytest_itemcollected [hook]
+          item: <Function test_airdrop_data_pool>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'tests/test_airdrop_data_pool.py' lenresult=1 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+      pytest_collection_modifyitems [hook]
+          session: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          config: <_pytest.config.Config object at 0x12105d130>
+          items: [<Function test_airdrop_data_pool>]
+      finish pytest_collection_modifyitems --> [] [hook]
+      pytest_collection_finish [hook]
+          session: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        pytest_report_collectionfinish [hook]
+            config: <_pytest.config.Config object at 0x12105d130>
+            items: [<Function test_airdrop_data_pool>]
+            start_path: /Users/pan/work/rido/dao/rido-contracts
+            startdir: /Users/pan/work/rido/dao/rido-contracts
+        finish pytest_report_collectionfinish --> [] [hook]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: coincurve [assertion]
+      early skip of rewriting module: eth.estimators.gas [assertion]
+      finish pytest_collection_finish --> [] [hook]
+    finish pytest_collection --> None [hook]
+    pytest_runtestloop [hook]
+        session: <Session rido-contracts exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=1>
+      pytest_runtest_protocol [hook]
+          item: <Function test_airdrop_data_pool>
+          nextitem: None
+        pytest_runtest_logstart [hook]
+            nodeid: tests/test_airdrop_data_pool.py::test_airdrop_data_pool
+            location: ('tests/test_airdrop_data_pool.py', 8, 'test_airdrop_data_pool')
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function test_airdrop_data_pool>
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='_session_isolation' scope='session' baseid=''>
+              request: <SubRequest '_session_isolation' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_setup --> None [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='accounts' scope='session' baseid=''>
+              request: <SubRequest 'accounts' for <Function test_airdrop_data_pool>>
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          finish pytest_fixture_setup --> [0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, 0x70997970C51812dc3A010C7d01b50e0d17dc79C8, 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC, 0x90F79bf6EB2c4f870365E785982E1f101E93b906, 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65, 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc, 0x976EA74026E726554dB657fA54763abd0C3a0aa9, 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955, 0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f, 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720] [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='owner' scope='session' baseid='tests'>
+              request: <SubRequest 'owner' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_setup --> 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='project' scope='session' baseid=''>
+              request: <SubRequest 'project' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_setup --> Project("/Users/pan/work/rido/dao/rido-contracts") [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='airdrop_data_pool' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_data_pool' for <Function test_airdrop_data_pool>>
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          finish pytest_fixture_setup --> 0x5FbDB2315678afecb367f032d93F642f64180aa3 [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='gauge_controller' scope='session' baseid='tests'>
+              request: <SubRequest 'gauge_controller' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_setup --> 0x90F79bf6EB2c4f870365E785982E1f101E93b906 [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='airdrop_minter' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_minter' for <Function test_airdrop_data_pool>>
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          finish pytest_fixture_setup --> 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='ridoerc20' scope='session' baseid='tests'>
+              request: <SubRequest 'ridoerc20' for <Function test_airdrop_data_pool>>
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          finish pytest_fixture_setup --> 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='_function_isolation' scope='function' baseid=''>
+              request: <SubRequest '_function_isolation' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_setup --> None [hook]
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function test_airdrop_data_pool>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='setup' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='setup' outcome='passed'>
+              config: <_pytest.config.Config object at 0x12105d130>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function test_airdrop_data_pool>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function test_airdrop_data_pool>
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          early skip of rewriting module: coincurve [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function test_airdrop_data_pool>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='call' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='call' outcome='passed'>
+              config: <_pytest.config.Config object at 0x12105d130>
+          finish pytest_report_teststatus --> ('passed', '.', 'PASSED') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function test_airdrop_data_pool>
+            nextitem: None
+        early skip of rewriting module: coincurve [assertion]
+        early skip of rewriting module: coincurve [assertion]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='_function_isolation' scope='function' baseid=''>
+              request: <SubRequest '_function_isolation' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='ridoerc20' scope='session' baseid='tests'>
+              request: <SubRequest 'ridoerc20' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='ridoerc20' scope='session' baseid='tests'>
+              request: <SubRequest 'ridoerc20' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_minter' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_minter' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='gauge_controller' scope='session' baseid='tests'>
+              request: <SubRequest 'gauge_controller' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_minter' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_minter' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_data_pool' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_data_pool' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='ridoerc20' scope='session' baseid='tests'>
+              request: <SubRequest 'ridoerc20' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_minter' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_minter' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_data_pool' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_data_pool' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='project' scope='session' baseid=''>
+              request: <SubRequest 'project' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='ridoerc20' scope='session' baseid='tests'>
+              request: <SubRequest 'ridoerc20' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_minter' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_minter' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='airdrop_data_pool' scope='session' baseid='tests'>
+              request: <SubRequest 'airdrop_data_pool' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='owner' scope='session' baseid='tests'>
+              request: <SubRequest 'owner' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='gauge_controller' scope='session' baseid='tests'>
+              request: <SubRequest 'gauge_controller' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='owner' scope='session' baseid='tests'>
+              request: <SubRequest 'owner' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='accounts' scope='session' baseid=''>
+              request: <SubRequest 'accounts' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='_session_isolation' scope='session' baseid=''>
+              request: <SubRequest '_session_isolation' for <Function test_airdrop_data_pool>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function test_airdrop_data_pool>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/test_airdrop_data_pool.py::test_airdrop_data_pool' when='teardown' outcome='passed'>
+              config: <_pytest.config.Config object at 0x12105d130>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            nodeid: tests/test_airdrop_data_pool.py::test_airdrop_data_pool
+            location: ('tests/test_airdrop_data_pool.py', 8, 'test_airdrop_data_pool')
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+    finish pytest_runtestloop --> True [hook]
+    pytest_sessionfinish [hook]
+        session: <Session rido-contracts exitstatus=0 testsfailed=0 testscollected=1>
+        exitstatus: 0
+      pytest_terminal_summary [hook]
+          terminalreporter: <_pytest.terminal.TerminalReporter object at 0x122f79490>
+          exitstatus: 0
+          config: <_pytest.config.Config object at 0x12105d130>
+      finish pytest_terminal_summary --> [] [hook]
+    finish pytest_sessionfinish --> [] [hook]
+    pytest_unconfigure [hook]
+        config: <_pytest.config.Config object at 0x12105d130>
+    finish pytest_unconfigure --> [] [hook]

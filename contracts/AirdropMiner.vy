@@ -28,11 +28,11 @@ event UpdateMiningParameters:
 admin: public(address)
 token: public(address)
 data_pool: public(address)
+epoch_interval: public(uint256)
 
 WEEK: constant(uint256) = 86400 * 7
-INFLATION_DELAY:constant(uint256) = 86400
-RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
-# RATE_REDUCTION_TIME: constant(uint256) = 0 
+# RATE_REDUCTION_TIME: constant(uint256) = 2 * WEEK 
+
 
 REWARD_RATE: constant(uint256)= 50_000_000 * 10 ** 18
 
@@ -47,9 +47,10 @@ init_epoch_time: public(uint256)
 allowed_to_mint_for: public(HashMap[address, HashMap[address, bool]])
 
 @external
-def __init__(_data_pool: address):
+def __init__(_data_pool: address,_epoch_interval: uint256):
     self.admin = msg.sender
     self.data_pool = _data_pool
+    self.epoch_interval = _epoch_interval
 
 
 @external
@@ -60,9 +61,13 @@ def start(_token: address):
 
     assert RIDOERC20(_token).balanceOf(self) >= REWARD_RATE, "balance in airdrop contract should larger than rewart rate"
     self.token = _token
-    self.start_epoch_time = block.timestamp - RATE_REDUCTION_TIME
+    self.start_epoch_time = block.timestamp - self.epoch_interval
     self.init_epoch_time = block.timestamp
 
+@external
+def set_epoch_interval(_epoch_intelval: uint256):
+    assert msg.sender == self.admin
+    self.epoch_interval = _epoch_intelval
 
 @internal
 def _update_mining_parameters():
@@ -70,8 +75,10 @@ def _update_mining_parameters():
     @dev Update mining rate and supply at the start of the epoch
          Any modifying mining call must also call this
     """
-    self.start_epoch_time += RATE_REDUCTION_TIME
-    self.minting_epoch += 1
+    assert self.token != empty(address), "miner is not start"
+    unFollowedEpoch:uint256 = (block.timestamp - self.start_epoch_time) / self.epoch_interval
+    self.start_epoch_time +=  unFollowedEpoch * self.epoch_interval
+    self.minting_epoch += convert(unFollowedEpoch,uint64)
     log UpdateMiningParameters(block.timestamp, self.minting_epoch,  self.start_epoch_time)
     DataPools(self.data_pool).set_epoch(self.minting_epoch)
 
@@ -83,7 +90,7 @@ def update_mining_parameters():
     @dev Callable by any address, but only once per epoch
          Total supply becomes slightly larger if this function is called late
     """
-    assert block.timestamp >= self.start_epoch_time + RATE_REDUCTION_TIME, "new epoch is not start" # dev: too soon!
+    assert block.timestamp >= self.start_epoch_time + self.epoch_interval, "new epoch is not start" # dev: too soon!
     self._update_mining_parameters()
 
 
@@ -95,7 +102,7 @@ def epoch_write() -> uint64:
     @return num of the epoch
     """
     _start_epoch_time: uint256 = self.start_epoch_time
-    if block.timestamp >= _start_epoch_time + RATE_REDUCTION_TIME:
+    if block.timestamp >= _start_epoch_time + self.epoch_interval:
         self._update_mining_parameters()
         
     return self.minting_epoch
@@ -109,7 +116,7 @@ def start_epoch_time_write() -> uint256:
     @return Timestamp of the epoch
     """
     _start_epoch_time: uint256 = self.start_epoch_time
-    if block.timestamp >= _start_epoch_time + RATE_REDUCTION_TIME:
+    if block.timestamp >= _start_epoch_time + self.epoch_interval:
         self._update_mining_parameters()
         return self.start_epoch_time
     else:
@@ -124,17 +131,17 @@ def future_epoch_time_write() -> uint256:
     @return Timestamp of the next epoch
     """
     _start_epoch_time: uint256 = self.start_epoch_time
-    if block.timestamp >= _start_epoch_time + RATE_REDUCTION_TIME:
+    if block.timestamp >= _start_epoch_time + self.epoch_interval:
         self._update_mining_parameters()
-        return self.start_epoch_time + RATE_REDUCTION_TIME
+        return self.start_epoch_time + self.epoch_interval
     else:
-        return _start_epoch_time + RATE_REDUCTION_TIME
+        return _start_epoch_time + self.epoch_interval
 
 
 @internal
 def _mint_for(_for: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100], _sig: Bytes[65]):
     assert _for != empty(address)   # dev: zero address
-    if block.timestamp >= self.start_epoch_time + RATE_REDUCTION_TIME:
+    if block.timestamp >= self.start_epoch_time + self.epoch_interval:
         self._update_mining_parameters()
 
     extractable_reward: uint256 = DataPools(self.data_pool).user_extractable_reward(_for,_data_pool, _epoch, _attestations, _sig)
@@ -183,11 +190,6 @@ def toggle_approve_mint(minting_user: address):
     self.allowed_to_mint_for[minting_user][msg.sender] = not self.allowed_to_mint_for[minting_user][msg.sender]
 
 @external
-@view
-def get_init_epoch() -> uint256:
-    return self.init_epoch_time
-
-@external
-@view
-def get_epoch_length() -> uint256:
-    return RATE_REDUCTION_TIME
+@view 
+def currentBlockTime() -> uint256:
+    return block.timestamp

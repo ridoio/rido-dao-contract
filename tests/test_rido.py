@@ -2,12 +2,16 @@ import ape
 import pytest
 from decimal import Decimal
 from eth_abi import encode
+from ape import chain
 
-def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
+EPOCH_INTERVAL = 3600 * 2
+
+def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller,airdrop_minter,ridoerc20):
     assert airdrop_data_pool.admin() == owner
-    airdrop_data_pool.set_minter(gauge_controller, sender = owner)
+    airdrop_data_pool.set_minter(airdrop_minter, sender = owner)
     airdrop_data_pool.set_gauge_controller(gauge_controller, sender = owner)
     assert airdrop_data_pool.mintingEpoch() == 0
+
 
     data_pool = encode(['bytes32'], [bytes.fromhex('0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3d')])
     data_pool2 = encode(['bytes32'], [bytes.fromhex('0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3f')])
@@ -20,8 +24,12 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
 
     assert airdrop_data_pool.get_data_pools()[0].hex() == '0x0bdc3271b3654ea1e0709a1b711aad16d52abdd80e9117ebac9a5dbfae326c3d'
 
-    airdrop_data_pool.set_epoch(3,sender = gauge_controller)
+    airdrop_minter.start(ridoerc20,sender = owner)
+    chain.pending_timestamp += EPOCH_INTERVAL * 2 + 1
+    airdrop_minter.epoch_write(sender = gauge_controller)
+
     assert airdrop_data_pool.mintingEpoch() == 3
+
     airdrop_data_pool.set_data_pools(data_pool, 1, 2 , 2, 5 * 10 ** 16, 3, sender = gauge_controller)
     airdrop_data_pool.set_data_pools(data_pool2, 1, 2 , 2,5 * 10 ** 16, 3, sender = gauge_controller)
 
@@ -89,7 +97,7 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller):
     rido_addr = '0x471543A3bd04486008c8a38c5C00543B73F1769e'
     airdrop_data_pool.set_admin(rido_addr,sender = owner)
     assert airdrop_data_pool.admin() == rido_addr
-    tx = airdrop_data_pool.user_extractable_reward(owner,[data_pool,data_pool],[1,2],[4,9],s, sender = gauge_controller)
+    tx = airdrop_minter.mint([data_pool,data_pool],[1,2],[4,9],s, sender = owner)
     logs = list(tx.decode_logs(airdrop_data_pool.ExtractReward))
     assert len(logs) == 2
     assert logs[0].extractor == logs[1].extractor and logs[1].extractor == owner

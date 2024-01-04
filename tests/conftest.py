@@ -2,6 +2,8 @@ import pytest
 
 from eip712.messages import EIP712Message
 
+EPOCH_INTERVAL = 3600 * 2
+
 @pytest.fixture(scope="session")
 def Permit(chain, token):
     class Permit(EIP712Message):
@@ -44,9 +46,9 @@ def airdrop_data_pool(owner,project):
 
 @pytest.fixture(scope="session")
 def airdrop_minter(owner,project,airdrop_data_pool):
-    return owner.deploy(project.AirdropMiner,airdrop_data_pool)
+    return owner.deploy(project.AirdropMiner,airdrop_data_pool,EPOCH_INTERVAL)
 
 
 @pytest.fixture(scope="session")
 def ridoerc20(owner,project,airdrop_minter):
-    return owner.deploy(project.ERC20RIDO,"RIDO","RID",18,airdrop_minter)
+    return owner.deploy(project.ERC20SRIDO,"RIDO","RID",18,airdrop_minter,10_000_000_000 * 10 **18,10_000_000_000 * 10 **18)
