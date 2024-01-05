@@ -8,7 +8,7 @@
 .pytest_cache
 .python-version
 __pycache__
-.idea
+.idea/
 
 rido_admin.pem
 .hypothesis/unicode_data/13.0.0/
