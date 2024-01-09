@@ -31,7 +31,7 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller,airdrop_min
     assert airdrop_data_pool.mintingEpoch() == 3
 
     airdrop_data_pool.set_data_pools(data_pool, 1, 2 , 2, 5 * 10 ** 16, 3, sender = gauge_controller)
-    airdrop_data_pool.set_data_pools(data_pool2, 1, 2 , 2,5 * 10 ** 16, 3, sender = gauge_controller)
+    airdrop_data_pool.set_data_pools(data_pool2, 1, 2 , 2 ,5 * 10 ** 16, 3, sender = gauge_controller)
 
 
     assert airdrop_data_pool.get_data_pool_info(0,data_pool)[0] == Decimal(0.5)
@@ -77,8 +77,12 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller,airdrop_min
     assert airdrop_data_pool.get_data_pool_info(10,data_pool2)[2] == 5 * 10 ** 16
 
 
+    chain.pending_timestamp += EPOCH_INTERVAL
     airdrop_data_pool.update_each_epoch_attestations([data_pool,data_pool,data_pool,data_pool],[0,1,2,3], [1000,1000,2000,3000], sender = owner)
-    assert airdrop_data_pool.get_total_attestations(1,data_pool) == 1000
+
+    assert airdrop_data_pool.mintingEpoch() == 4
+
+    assert airdrop_data_pool.get_total_attestations(0,data_pool) == 1000
     assert airdrop_data_pool.get_total_attestations(1,data_pool) == 1000
     assert airdrop_data_pool.get_total_attestations(2,data_pool) == 2000
     assert airdrop_data_pool.get_total_attestations(3,data_pool) == 3000
@@ -88,6 +92,8 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller,airdrop_min
     assert airdrop_data_pool.piecewise_function(2,1,2,3) == 25_000_000_000
     assert airdrop_data_pool.piecewise_function(2,1,2,4) == 30_000_000_000
     assert airdrop_data_pool.piecewise_function(2,1,2,9) == 38_125_000_000
+
+    assert airdrop_data_pool.reward_remaining(data_pool,2) == 10 ** 16
 
     assert airdrop_data_pool.get_rate_of_pool(2, 2000, data_pool, 2) == 10 ** 13
     
@@ -113,3 +119,7 @@ def test_airdrop_data_pool(airdrop_data_pool, owner,gauge_controller,airdrop_min
     assert airdrop_data_pool.withdrawed_epoch(owner,[data_pool])[2][1] == 2 
     assert airdrop_data_pool.withdrawed_epoch(owner,[data_pool])[3][0] == 4 
     assert airdrop_data_pool.withdrawed_epoch(owner,[data_pool])[3][1] == 9 
+
+    assert airdrop_data_pool.reward_remaining(data_pool,2) == 9980937500000000
+    assert airdrop_data_pool.reward_remaining(data_pool,1) == 9970000000000000
+

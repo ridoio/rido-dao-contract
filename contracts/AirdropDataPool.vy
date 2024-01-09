@@ -55,6 +55,7 @@ gaugeController: public(address)
 pools: public(HashMap[bytes32, HashMap[uint64, DataPoolSlope]])
 pool_ids: public(HashMap[bytes32,uint8])
 pool_ids_slice: public(DynArray[bytes32, 9999])
+reward_remaining: public(HashMap[bytes32, HashMap[uint64, uint256]])
 
 #total attestation of data pools created in different epoch
 # map(schema uid -> map(epoch -> (total attestation amount)))
@@ -171,24 +172,30 @@ def get_data_pools() -> DynArray[bytes32, 9999]:
     return self.pool_ids_slice
 
 @external
-def update_each_epoch_attestations(_data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100]):
+def update_each_epoch_attestations(_data_pools: DynArray[bytes32, 100], _epochs:DynArray[uint64, 100], _attestations:DynArray[uint64, 100]):
     """
     @notice Update total generated attestations amount in each epoch
     @dev Only admin can call this function
-    @param _data_pool slice of data pool uid
+    @param _data_pools slice of data pool uid
     @param _attestations slice of validate attestation amount
-    @param _epoch slice of data pool
+    @param _epochs slice of data pool
     """
 
     AirdropMinter(self.minter).epoch_write()
     assert msg.sender == self.admin
-    assert len(_data_pool) == len(_epoch) and len(_epoch) == len(_attestations), "the len of data_pools, epoch and attestation should be same"
+    assert len(_data_pools) == len(_epochs) and len(_epochs) == len(_attestations), "the len of data_pools, epoch and attestation should be same"
 
     i: int32 = 0
-    for _pool in _data_pool:
-        if self.totalAttestations[_pool][_epoch[i]] == 0:
-            self.totalAttestations[_pool][_epoch[i]] = _attestations[i]
-            log SetTotalAttestation(_pool,_epoch[i],_attestations[i])
+    for _pool in _data_pools:
+        _epoch:uint64 = _epochs[i]
+        _attestation:uint64 = _attestations[i]
+        if self.totalAttestations[_pool][_epoch] == 0 and self.mintingEpoch > _epoch:
+            self.totalAttestations[_pool][_epoch] = _attestations[i]
+
+            #init reward for `_data_pools[i]` in `_epochs[i]`
+            data_pools: DataPoolSlope = self._get_data_pool_info(_epoch,_pool)
+            self.reward_remaining[_pool][_epoch] = data_pools.reward
+            log SetTotalAttestation(_pool,_epoch,_attestation)
         i+=1
 
 @external
@@ -227,10 +234,16 @@ def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 100], 
             continue
         else:
             _totalAttestations: uint64 = self.totalAttestations[_data_pool[i]][e]
+
+            assert _attestations[i] < _totalAttestations, "user attestations amount exceed total attestations"
             _extractableRIDO: uint256 = self._get_rate_of_pool(_attestations[i], _totalAttestations, _data_pool[i], e)
-            log ExtractReward(_addr, _data_pool[i], e,_attestations[i], _totalAttestations, _extractableRIDO)
-            extractableRIDO += _extractableRIDO
+
+            assert _extractableRIDO <= self.reward_remaining[_data_pool[i]][e], "remaining token can not paid rewaid"
+            self.reward_remaining[_data_pool[i]][e] -= _extractableRIDO
             self.userAttestations[_addr][_data_pool[i]][e] = _attestations[i]
+            extractableRIDO += _extractableRIDO
+            log ExtractReward(_addr, _data_pool[i], e,_attestations[i], _totalAttestations, _extractableRIDO)
+            
         i+=1
     return extractableRIDO
 
