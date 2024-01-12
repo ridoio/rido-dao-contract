@@ -189,7 +189,7 @@ def update_each_epoch_attestations(_data_pools: DynArray[bytes32, 100], _epochs:
     for _pool in _data_pools:
         _epoch:uint64 = _epochs[i]
         _attestation:uint64 = _attestations[i]
-        if self.totalAttestations[_pool][_epoch] == 0 and self.mintingEpoch > _epoch:
+        if self.totalAttestations[_pool][_epoch] == 0 and self.mintingEpoch > _epoch and self.totalAttestations[_pool][_epoch] == empty(uint64):
             self.totalAttestations[_pool][_epoch] = _attestations[i]
 
             #init reward for `_data_pools[i]` in `_epochs[i]`
