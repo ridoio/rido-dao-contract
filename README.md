@@ -37,15 +37,6 @@ Now let's go into some detail.
 
 First of all we have a function as following:
 
-```math
-f(s,x_j)=\begin{cases} 
-x_j,& 0 \leq x_j < s;\\
-s+\frac{1}{t} \cdot (x_j-s) ,& s \leq x_j < s+1;\\
-... \\
-s \cdot \sum_{m=0}^{n-1} (\frac{1}{t})^m + (\frac{1}{t})^n \cdot (x_j-ns), & ns \leq x_j < (n+1)s
-\end{cases}
-```
-
 $$
 f(s,x_j)=\begin{cases} 
 x_j,& 0 \leq x_j < s;\\
@@ -75,7 +66,7 @@ $$
 S_i^j = S_i \cdot \frac{f(s,x_j)}{\sum_j{x_j}}
 $$
 
-其中，$S_i$
+其中，$S_i$ 为Data Pool $i$ 的总xp数量。
 
 ### Stage 2: Governance: Allocate Incentive Between Data pools
 
@@ -85,11 +76,31 @@ RIDO通过veToken的方式，通过DAO治理来解决这个问题。
 
 正如上文提到的，incentive是按照epoch发放的，每个epoch一共发放多少token是确定的并随时间递减的。因此我们问题变成了如何确定在每个epoch中，不同的data pool应该分的token的比例。
 
-为了解决这个问题，我们引入gauge的概念。首先，
+为了解决这个问题，我们引入几个概念：
+- Gauge Type: 用于表示Data Pool的某种指标。类比于手机评测的性价比，相机像素，续航等。
+- Gauge Type Weight: 不同的Gauge Type在评判一个data pool重要性中占的比重。依然类比于手机，性价比的重要性占60%，续航占20%, 样式10%，像素10%。为了书写方便，后文中用$w_k$表示Gauge Type 为$k$的Gauge Type Weight。我们有 $\sum_{k} w_k = 1$
+- Gauge: 某个data pool总重要程度的指标。$Gauge_i$ 表示data pool $i$ 的 Gauge. 并且我们有 $\sum Gauge_i = 1$
+- Inner Gauge: 某个data pool在某个Gauge Type下的得分。用于表示某个data pool在某个评判标准下的优劣情况。$IGauge_i^k$ 表示data pool $i$ 在 Gauge Type $k$ 下的Inner Gauge。$\sum_{i \in pools} IGauge^k_i = 1$。
+
+我们在引入中间变量 $Gauge^k_i = w_k \times inner\_gauge^k_i$，有 $Gauge^k_i = w_k \cdot IGauge^k_i$，以及 $Gauge_i = \sum_{k} Gauge^k_i$
+
+最终，每个data pool可以分配到的incentive为:
+$$
+S_i = S \cdot Gauge_i
+$$
+
+
+到目前为之，剩下的问题就变成了如何确定Gauge Type，Gauge Type Weight以及Inner Gauge。具体的过程是通过DAO治理实现的。
+1. 通过
+
+
+同时，Data Pool参数问题
 
 
 ### Stage 3: Support Private Data & User can Control Access Permission for Their Data
 -----
+
+### Stage 4: Data Trading Protocol
 
 ## Development
 
