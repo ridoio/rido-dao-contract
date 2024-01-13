@@ -37,6 +37,15 @@ Now let's go into some detail.
 
 First of all we have a function as following:
 
+```math
+f(s,x_j)=\begin{cases} 
+x_j,& 0 \leq x_j < s;\\
+s+\frac{1}{t} \cdot (x_j-s) ,& s \leq x_j < s+1;\\
+... \\
+s \cdot \sum_{m=0}^{n-1} (\frac{1}{t})^m + (\frac{1}{t})^n \cdot (x_j-ns), & ns \leq x_j < (n+1)s
+\end{cases}
+```
+
 $$
 f(s,x_j)=\begin{cases} 
 x_j,& 0 \leq x_j < s;\\
@@ -47,16 +56,16 @@ s \cdot \sum_{m=0}^{n-1} (\frac{1}{t})^m + (\frac{1}{t})^n \cdot (x_j-ns), & ns 
 $$
 
 
-where `x_j` is the amount of data created by user `j`, `t` and `s` is data pool params. 
+where $x_j$ is the amount of data created by user $j$, $t$ and $s$ is data pool params. 
 
 
 <div align="center" id="revoke">
     <img src="./fig/fig.png" width="70%" />
 </div>
 
-As fig illustrating, the `s` & `t` of red line is 4 & 2 respectively, and the `s` & `t` of green line is 2 & 2.
+As fig illustrating, the $s$ & $t$ of red line is 4 & 2 respectively, and the $s$ & $t$ of green line is 2 & 2.
 
-According to the formula, with the increase of `x_j`, the increase rate of `f` becomes slower and eventually converges to st/t-1.
+According to the formula, with the increase of $x_j$, the increase rate of $f$ becomes slower and eventually converges to st/t-1.
 
 The amount of data under different type should be different. For example, the data of a user's profiles is updated once a week could be normally but users can generate dozens of game battles record data in a day. So as for different kind of data, the params of data pools should also be changed.
 
