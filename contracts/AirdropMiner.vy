@@ -14,6 +14,9 @@ interface DataPools:
     def user_extractable_reward(_addr: address, _data_pool: DynArray[bytes32, 100], _epoch:DynArray[uint64, 100], _attestations:DynArray[uint64, 100],_sig: Bytes[65]) -> uint256: nonpayable
     def set_epoch(_epoch :uint64): nonpayable
 
+event UpdateEpoch:
+    before_epoch: uint256
+    current_epoch: uint256
 
 event Minted:
     recipient: indexed(address)
@@ -67,7 +70,9 @@ def start(_token: address):
 @external
 def set_epoch_interval(_epoch_intelval: uint256):
     assert msg.sender == self.admin
+    _epoch: uint256 = self.epoch_interval
     self.epoch_interval = _epoch_intelval
+    log UpdateEpoch(_epoch,_epoch_intelval)
 
 @internal
 def _update_mining_parameters():

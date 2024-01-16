@@ -6,5 +6,6 @@ geth:
   bsc:
     testnet:
       uri: https://data-seed-prebsc-1-s1.bnbchain.org:8545
+      gas_limit: auto
     mainnet:
       uri: https://bsc-dataseed.ninicoin.io
