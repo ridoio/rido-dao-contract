@@ -21,9 +21,7 @@ The data RIDO deal with should be registered in [BAS](https://doc.bascan.io). An
 
 - **Epoch**: A unit of time. The incentive and parameter changes are based on epoch.
 
-
 --------
-
 
 ## Stage 1: Allocate Incentive in the Single Data Pool
 
@@ -38,7 +36,7 @@ Now let's go into some detail.
 First of all we have a function as following:
 
 $$
-f(s,x_j)=\begin{cases} 
+f(s,x_j)=\begin{cases}
 x_j,& 0 \leq x_j < s;\\
 s+\frac{1}{t} \cdot (x_j-s) ,& s \leq x_j < s+1;\\
 ... \\
@@ -46,61 +44,98 @@ s \cdot \sum_{m=0}^{n-1} (\frac{1}{t})^m + (\frac{1}{t})^n \cdot (x_j-ns), & ns 
 \end{cases}
 $$
 
+where $x_j$ is the amount of data created by user $j$, $t$ and $s$ is data pool params.
 
-where $x_j$ is the amount of data created by user $j$, $t$ and $s$ is data pool params. 
-
-
-<div align="center" id="revoke">
+<div align="center" id="func">
     <img src="./fig/fig.png" width="70%" />
 </div>
 
 As fig illustrating, the $s$ & $t$ of red line is 4 & 2 respectively, and the $s$ & $t$ of green line is 2 & 2.
 
-According to the formula, with the increase of $x_j$, the increase rate of $f$ becomes slower and eventually converges to st/t-1.
+According to the formula, with the increase of $x_j$, the increase rate of $f$ becomes slower and eventually converges to $\frac{s}{1-1/t}$.
 
 The amount of data under different type should be different. For example, the data of a user's profiles is updated once a week could be normally but users can generate dozens of game battles record data in a day. So as for different kind of data, the params of data pools should also be changed.
 
-最终，用户`j`获得的xp的数量为：
+Ultimately, the quantity of XP obtained by user `j` is:
 
 $$
 S_i^j = S_i \cdot \frac{f(s,x_j)}{\sum_j{x_j}}
 $$
 
-其中，$S_i$ 为Data Pool $i$ 的总xp数量。
+where $S_i$ represents the total XP (experience points) amount for Data Pool $i$.
 
 ### Stage 2: Governance: Allocate Incentive Between Data pools
 
-The value of data is ambiguous. 数据的价值会随着数据类型, 时间，使用者等因素变化而变化。因此对于不同类型的数据，根据不同的条件动态地修改incentive。在stage1中，不同类型的数据获得incentive的数量是由RIDO DAO指定的。这很容易陷入到中心化陷阱，或者有失公允，不能够最大程度的激励用户产生数据。因此我们需要一种更加去中心化、更加公平的方式来决定如何对不同条件下的不同数据进行奖励。
+The value of data is ambiguous. The value of data varies based on factors such as data type, time, and user. Therefore, the incentive for different types of data needs to be dynamically adjusted based on different conditions. In stage 1, the quantity of incentive for different types of data is specified by RIDO DAO. However, this approach is prone to centralization pitfalls or may lack fairness, being unable to maximally stimulate users to generate data.Therefore, we need a more decentralized and equitable approach to determine rewards for different data under various conditions.
 
-RIDO通过veToken的方式，通过DAO治理来解决这个问题。
+RIDO utilizes veToken model and employs DAO governance to address this issue.
 
-正如上文提到的，incentive是按照epoch发放的，每个epoch一共发放多少token是确定的并随时间递减的。因此我们问题变成了如何确定在每个epoch中，不同的data pool应该分的token的比例。
+As mentioned earlier, incentives are distributed per epoch, and the total number of tokens issued in each epoch is predetermined and decreases over time. Therefore, our question becomes how to determine the proportion of tokens that different data pools should receive in each epoch.
 
-为了解决这个问题，我们引入几个概念：
-- Gauge Type: 用于表示Data Pool的某种指标。类比于手机评测的性价比，相机像素，续航等。
-- Gauge Type Weight: 不同的Gauge Type在评判一个data pool重要性中占的比重。依然类比于手机，性价比的重要性占60%，续航占20%, 样式10%，像素10%。为了书写方便，后文中用$w_k$表示Gauge Type 为$k$的Gauge Type Weight。我们有 $\sum_{k} w_k = 1$
-- Gauge: 某个data pool总重要程度的指标。$Gauge_i$ 表示data pool $i$ 的 Gauge. 并且我们有 $\sum Gauge_i = 1$
-- Inner Gauge: 某个data pool在某个Gauge Type下的得分。用于表示某个data pool在某个评判标准下的优劣情况。$IGauge_i^k$ 表示data pool $i$ 在 Gauge Type $k$ 下的Inner Gauge。$\sum_{i \in pools} IGauge^k_i = 1$。
+To solve this problem, we import some new definitions：
 
-我们在引入中间变量 $Gauge^k_i = w_k \times inner\_gauge^k_i$，有 $Gauge^k_i = w_k \cdot IGauge^k_i$，以及 $Gauge_i = \sum_{k} Gauge^k_i$
+- Gauge Type: A metric used to represent a certain aspect of a Data Pool. Analogous to considerations like cost-effectiveness in phone reviews, camera pixels, and battery life.
+- Gauge Type Weight: The weight that different Gauge Types carry in evaluating the importance of a data pool. Drawing an analogy to smartphones, the importance of cost-effectiveness accounts for 60%, battery life for 20%, design for 10%, and pixel quality for 10%. For ease of writing, we use $w_k$ to represent the weight of Gauge Type $k$ in the subsequent text. And $\sum_{k} w_k = 1$
+- Gauge: The overall importance indicator of a specific data pool. $Gauge_i$ represents the gauge of data pool $i$. Additionally, we have $\sum Gauge_i = 1$.
+- Inner Gauge: The score of a particular data pool under a specific Gauge Type. It is used to indicate the performance of a data pool under a certain Gauge type. $IGauge_i^k$ represents the Inner Gauge of data pool $i$ under Gauge Type $k$. $\sum_{i \in pools} IGauge^k_i = 1$.
 
-最终，每个data pool可以分配到的incentive为:
+We introduce an intermediate variable $Gauge^k_i = w_k \times inner\_gauge^k_i\), where \(Gauge^k_i = w_k \cdot IGauge^k_i$ , and  $Gauge_i = \sum_{k} Gauge^k_i$.
+
+Finally, the incentive allocated to data pool `i` is:
+
 $$
 S_i = S \cdot Gauge_i
 $$
 
+<div align="center" id="gauge">
+    <img src="./fig/gauge.png" width="70%" />
+</div>
 
-到目前为之，剩下的问题就变成了如何确定Gauge Type，Gauge Type Weight以及Inner Gauge。具体的过程是通过DAO治理实现的。
-1. 通过
+Up to this point, the remaining question becomes how to determine the Gauge Type, Gauge Type Weight, and Inner Gauge. This process is specifically implemented through DAO governance.
 
+RIDO DAO determines the types of Gauge Type, Gauge Weight, and the calculation method of Inner Gauge through voting.
 
-同时，Data Pool参数问题
+Examples of Gauge Type:
 
+| Gauge Type     | Calculate Inner Gauge|
+|:---------------|:--------------------|
+|RIDO DAO Gauge  | $IGauge_i = \frac{v_i}{v}$ where $v_i$ is the vote to data pool i and v is total vote |
+|Trading Gauge   | $IGauge_i = \frac{volume_i}{volume}$ where $volume_i$ is the volume of data pool i and volume is total volume of all data pools|
+|Data Size Gauge | $IGauge_i = \frac{s_i}{s}$ where $s_i$ is the volume of data pool i and volume is total size of all data pools|
+
+RIDO DAO can dynamically adjust how to modify the Gauge System to ensure fair distribution of data based on actual context. Once the calculation method for Inner Gauge is determined, RIDO DAO cannot directly manipulate its final results (e.g., RIDO DAO cannot directly manipulate the volume of data pool), ensuring the decentralization and fairness of the system
 
 ### Stage 3: Support Private Data & User can Control Access Permission for Their Data
------
+
+Firstly, it's essential to clarify that public data and data under user control completely have no transaction value.
+
+In Web3, whether it's On-chain data or decentralized storage data like IPFS, Arweave, Ceramic, etc., the data is public. Public data is directly accessible by anyone, eliminating the need for buyers to purchase data. Most on-chain data platforms sell processed data derived from public sources, but the original data providers often do not receive compensation.
+
+In RIDO, what is traded is the access control permissions to the data. If users can modify or delete their data after selling access rights, there is no motivation for anyone to buy user data.
+
+To address these issues, RIDO uses Greenfield as the underlying storage to achieve data privacy. By transferring data ownership to contracts, RIDO ensures user permissions are within reasonable bounds
+
+<div align="center" id="gauge">
+    <img src="./fig/gf.png" width="80%" />
+</div>
+
+As shown in the diagram, the basic workflow for users is as follows:
+
+- Contract creates a bucket and become the owner.
+- USer store data in the bucket held by the contract and obtain access control permissions for their own data.
+- USer control access permissions for their data on the Binance Smart Chain (BSC) or OpBNB through the contract.
+
+More detail: Coming Soon.
 
 ### Stage 4: Data Trading Protocol
+
+Data is a non-standardized product, and various factors such as different data types, sizes of data sets, time points, and the complexity of data ownership make data pricing extremely challenging. RIDO employs a dynamic S-curve approach for data pricing. The data price starts from a certain value, decreases over time, and if a buyer purchases data at a certain moment, the pricing function rolls back.
+
+<div align="center" id="gauge">
+    <img src="./fig/data_price.png" width="80%" />
+</div>
+
+More detail: Coming Soon.
 
 ## Development
 
@@ -134,6 +169,6 @@ Following is the contract deployed in BNB chain.
 
 ### BSC Testnet
 
-- *Stage1 Minter*: `0x`
-- *Stage1 Data Pool*: `0x`
-
+- *Stage1 Minter*: [`0x3d8134C860b0F72b4492a3aa0C7c000C0b45B400`](https://testnet.bscscan.com/address/0x3d8134C860b0F72b4492a3aa0C7c000C0b45B400)
+- *Stage1 Data Pool*: [`0x16345d3444A60027808eB84906f70CD41D821CeD`](https://testnet.bscscan.com/address/0x16345d3444A60027808eB84906f70CD41D821CeD)
+- *RIDO-I BRC20*: [`0x7ce375fD6b39D7711E48847102eB99c6e930B61d`](https://testnet.bscscan.com/address/0x7ce375fD6b39D7711E48847102eB99c6e930B61d)
