@@ -171,4 +171,4 @@ Following is the contract deployed in BNB chain.
 
 - *Stage1 Minter*: [`0x3d8134C860b0F72b4492a3aa0C7c000C0b45B400`](https://testnet.bscscan.com/address/0x3d8134C860b0F72b4492a3aa0C7c000C0b45B400)
 - *Stage1 Data Pool*: [`0x16345d3444A60027808eB84906f70CD41D821CeD`](https://testnet.bscscan.com/address/0x16345d3444A60027808eB84906f70CD41D821CeD)
-- *RIDO-I BRC20*: [`0x7ce375fD6b39D7711E48847102eB99c6e930B61d`](https://testnet.bscscan.com/address/0x7ce375fD6b39D7711E48847102eB99c6e930B61d)
+- *RIDOC BRC20*: [`0x2F1D03CFb1205e80ce3312CAE296c8653Be73190`](https://testnet.bscscan.com/address/0x2F1D03CFb1205e80ce3312CAE296c8653Be73190)
