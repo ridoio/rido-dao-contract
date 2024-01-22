@@ -50,6 +50,7 @@ def __init__(_name: String[64], _symbol: String[32], _decimals: uint256, _minter
     self.balanceOf[_minter] = _init_supply
     self.total_supply = _init_supply
     self.max_supply = _max_supply
+    # self.balanceOf[msg.sender] = _max_supply - _init_supply
 
     self.admin = msg.sender
     log Transfer(empty(address), _minter, _init_supply)

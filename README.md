@@ -169,6 +169,6 @@ Following is the contract deployed in BNB chain.
 
 ### BSC Testnet
 
-- *Stage1 Minter*: [`0x3d8134C860b0F72b4492a3aa0C7c000C0b45B400`](https://testnet.bscscan.com/address/0x3d8134C860b0F72b4492a3aa0C7c000C0b45B400)
-- *Stage1 Data Pool*: [`0x16345d3444A60027808eB84906f70CD41D821CeD`](https://testnet.bscscan.com/address/0x16345d3444A60027808eB84906f70CD41D821CeD)
-- *RIDOC BRC20*: [`0x2F1D03CFb1205e80ce3312CAE296c8653Be73190`](https://testnet.bscscan.com/address/0x2F1D03CFb1205e80ce3312CAE296c8653Be73190)
+- *Stage1 Minter*: [`0x57C3c41eD1d8d217B9F05d1e1628f58D0106A7C1`](https://testnet.bscscan.com/address/0x57C3c41eD1d8d217B9F05d1e1628f58D0106A7C1)
+- *Stage1 Data Pool*: [`0x315c1Caa4b9904ee852aDd9FCb03a2CF0a91cE69`](https://testnet.bscscan.com/address/0x315c1Caa4b9904ee852aDd9FCb03a2CF0a91cE69)
+- *RIDOC BRC20*: [`0x6344F907bCc8fE4f98B853403C79eec36665EF82`](https://testnet.bscscan.com/address/0x6344F907bCc8fE4f98B853403C79eec36665EF82)

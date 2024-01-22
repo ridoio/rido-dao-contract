@@ -1,5 +1,7 @@
 # Data Pool Info for Epoch 2
 
+# Data Pool Info for Epoch 2
+
 **Total RIDO Credits**: 1.8M
 
 | name                                            | uid                                                                | xp  |t1 |t2 | s | reward epoch |
