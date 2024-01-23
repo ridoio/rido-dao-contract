@@ -3,7 +3,7 @@ from eth_abi import encode
 
 EPOCH_INTERVAL = 3600 * 24 * 7 * 2
 def main():
-    account = accounts.load("rido_test")
+    account = accounts.load("rido_admin")
 
     # dataPools = project.AirdropDataPool.deploy(sender=account, publish=True)
     dataPool = project.AirdropDataPool.deploy(sender=account)
